@@ -6,7 +6,7 @@ class ClassiFileApp:
         self.root.title("ClassiFile")
         self.root.configure(bg="#f0f0f0")
 
-        # Logo Label (Text Logo)
+        # Logo Label
         self.logo_label = tk.Label(root, text="ClassiFile - Classing your Files", font=("Helvetica", 24, "bold"), fg="#007BFF")
         self.logo_label.pack(pady=20)
 
