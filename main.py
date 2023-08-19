@@ -11,13 +11,13 @@ class ClassiFileApp:
         self.logo_label.pack(pady=20)
 
         # Buttons
-        self.upload_btn = tk.Button(root, text="Upload Files", command=self.increment_files, bg="#4CAF50", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+        self.upload_btn = tk.Button(root, text="Upload Files", command=self.increment_files, bg="#ADD8E6", fg="white", font=("Helvetica", 12), padx=20, pady=10)
         self.upload_btn.pack(pady=10)
 
-        self.create_account_btn = tk.Button(root, text="Create Account", command=self.dummy_function, bg="#007BFF", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+        self.create_account_btn = tk.Button(root, text="Create Account", command=self.dummy_function, bg="#ADD8E6", fg="white", font=("Helvetica", 12), padx=20, pady=10)
         self.create_account_btn.pack(pady=10)
 
-        self.organize_files_btn = tk.Button(root, text="Organize Files", command=self.dummy_function, bg="#FFC107", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+        self.organize_files_btn = tk.Button(root, text="Organize Files", command=self.dummy_function, bg="#ADD8E6", fg="white", font=("Helvetica", 12), padx=20, pady=10)
         self.organize_files_btn.pack(pady=10)
 
         # Sustainability Widget
