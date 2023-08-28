@@ -14,10 +14,10 @@ class ClassiFileApp:
         self.upload_btn = tk.Button(root, text="Upload Files", command=self.increment_files, bg="#4CAF50", fg="white", font=("Helvetica", 12), padx=20, pady=10)
         self.upload_btn.pack(pady=10)
 
-        self.create_account_btn = tk.Button(root, text="Create Account", command=self.dummy_function, bg="#007BFF", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+        self.create_account_btn = tk.Button(root, text="Create Account", command=self.create_account, bg="#007BFF", fg="white", font=("Helvetica", 12), padx=20, pady=10)
         self.create_account_btn.pack(pady=10)
 
-        self.organize_files_btn = tk.Button(root, text="Organize Files", command=self.dummy_function, bg="#FFC107", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+        self.organize_files_btn = tk.Button(root, text="Organize Files", command=self.organize_files, bg="#FFC107", fg="white", font=("Helvetica", 12), padx=20, pady=10)
         self.organize_files_btn.pack(pady=10)
 
         # Sustainability Widget
@@ -41,12 +41,16 @@ class ClassiFileApp:
         num_trees_saved = self.num_files // 10
         self.sustainability_info_label.config(text=f"You saved {num_trees_saved} trees by uploading {self.num_files} files.")
 
-    def dummy_function(self):
-        # Placeholder function for button commands
-        print("Button clicked!")
+    def create_account(self):
+        # Placeholder function for the "Create Account" button
+        print("Create Account button clicked!")
 
+    def organize_files(self):
+        # Placeholder function for the "Organize Files" button
+        print("Organize Files button clicked!")
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = ClassiFileApp(root)
     root.mainloop()
+
