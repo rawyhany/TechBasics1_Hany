@@ -1,56 +1,58 @@
 import tkinter as tk
 
-class ClassiFileApp:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("ClassiFile")
-        self.root.configure(bg="#f0f0f0")
+def press(button_name):
+    print(f"Button '{button_name}' pressed!")
 
-        # Logo Label (Text Logo)
-        self.logo_label = tk.Label(root, text="ClassiFile - Classing your Files", font=("Helvetica", 24, "bold"), fg="#007BFF")
-        self.logo_label.pack(pady=20)
+def arrange_files_alphabetically(file_list):
+    sorted_files = sorted(file_list)
+    print("Files arranged alphabetically:", sorted_files)
 
-        # Buttons
-        self.upload_btn = tk.Button(root, text="Upload Files", command=self.increment_files, bg="#4CAF50", fg="white", font=("Helvetica", 12), padx=20, pady=10)
-        self.upload_btn.pack(pady=10)
+def increment_files():
+    global num_files
+    num_files += 1
+    update_sustainability_widget()
 
-        self.create_account_btn = tk.Button(root, text="Create Account", command=self.create_account, bg="#007BFF", fg="white", font=("Helvetica", 12), padx=20, pady=10)
-        self.create_account_btn.pack(pady=10)
+def update_sustainability_widget():
+    num_trees_saved = num_files // 10
+    sustainability_info_label.config(text=f"You saved {num_trees_saved} trees by uploading {num_files} files.")
 
-        self.organize_files_btn = tk.Button(root, text="Organize Files", command=self.organize_files, bg="#FFC107", fg="white", font=("Helvetica", 12), padx=20, pady=10)
-        self.organize_files_btn.pack(pady=10)
+def create_account():
+    print("Create Account button clicked!")
 
-        # Sustainability Widget
-        self.num_files = 0  # Files counter
+def organize_files():
+    print("Organize Files button clicked!")
 
-        # Sustainability Label
-        self.sustainability_label = tk.Label(root, text="Sustainability Widget", font=("Helvetica", 16))
-        self.sustainability_label.pack(pady=20)
+root = tk.Tk(className='ClassiFile')
+root.configure(bg="#f0f0f0")
 
-        # Sustainability Info Label
-        self.sustainability_info_label = tk.Label(root, text="You haven't uploaded any files yet.", font=("Helvetica", 12))
-        self.sustainability_info_label.pack(pady=10)
+# Page Title
+page_title = tk.Label(root, text="ClassiFile - Classing your Files", font=("Helvetica", 24, "bold"), fg="#007BFF")
+page_title.pack(pady=20)
 
-    def increment_files(self):
-        # Increment the files counter when the "Upload Files" button is clicked
-        self.num_files += 1
-        self.update_sustainability_widget()
+# Sustainability Widget
+sustainability_label = tk.Label(root, text="Sustainability Widget", font=("Helvetica", 16))
+sustainability_label.pack(pady=20)
 
-    def update_sustainability_widget(self):
-        # Calculate trees saved based on the number of files (Assume 10 files = 1/10 of a tree)
-        num_trees_saved = self.num_files // 10
-        self.sustainability_info_label.config(text=f"You saved {num_trees_saved} trees by uploading {self.num_files} files.")
+# Dummy files
+dummy_files = ["file3.txt", "file1.doc", "file4.pdf", "file2.png", "file5.xlsx"]
+num_files = len(dummy_files)
+num_trees_saved = num_files // 10
 
-    def create_account(self):
-        # Placeholder function for the "Create Account" button
-        print("Create Account button clicked!")
+sustainability_info_label = tk.Label(root, text=f"You saved {num_trees_saved} trees by uploading {num_files} files.", font=("Helvetica", 12))
+sustainability_info_label.pack(pady=10)
 
-    def organize_files(self):
-        # Placeholder function for the "Organize Files" button
-        print("Organize Files button clicked!")
+# Arrange Files Buttons
+arrange_alphabetically_btn = tk.Button(root, text="Arrange Alphabetically", command=lambda: arrange_files_alphabetically(dummy_files), bg="#9C27B0", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+arrange_alphabetically_btn.pack(pady=10)
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = ClassiFileApp(root)
-    root.mainloop()
+# Buttons
+upload_btn = tk.Button(root, text="Upload Files", command=lambda: press("Upload Files"), bg="#4CAF50", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+upload_btn.pack(pady=10)
 
+create_account_btn = tk.Button(root, text="Create Account", command=lambda: press("Create Account"), bg="#007BFF", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+create_account_btn.pack(pady=10)
+
+organize_files_btn = tk.Button(root, text="Organize Files", command=lambda: press("Organize Files"), bg="#FFC107", fg="white", font=("Helvetica", 12), padx=20, pady=10)
+organize_files_btn.pack(pady=10)
+
+root.mainloop()
