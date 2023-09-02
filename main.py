@@ -71,7 +71,7 @@ sustainability_info_label = tk.Label(root, text=f"You saved {num_trees_saved} tr
 sustainability_info_label.pack(pady=10)
 
 
-# Arrange Files Buttons
+# Arrange Files
 def arrange_alphabetically():
     arrange_files_alphabetically(dummy_files)
 
