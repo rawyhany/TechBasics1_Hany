@@ -1,5 +1,9 @@
 import tkinter as tk
 
+root = tk.Tk()
+root.title('ClassiFile')
+root.configure(bg="#f0f0f0")
+
 
 def increment_files():
     global num_files
@@ -36,10 +40,6 @@ def arrange_files_by_length(file_list):
     print("Files arranged by length (shortest to longest):", sorted_files)
 
 
-root = tk.Tk()
-root.title('ClassiFile')
-root.configure(bg="#f0f0f0")
-
 # Page Title
 page_title = tk.Label(root, text="ClassiFile - Classing your Files", font=("Helvetica", 24, "bold"), fg="#007BFF")
 page_title.pack(pady=20)
@@ -62,7 +62,6 @@ dummy_files = [
     "Student_Transcript.pdf"
 ]
 
-
 num_files = len(dummy_files)
 num_trees_saved = num_files // 5
 
@@ -71,12 +70,22 @@ sustainability_info_label = tk.Label(root, text=f"You saved {num_trees_saved} tr
 sustainability_info_label.pack(pady=10)
 
 
-# Arrange Files
+# Organize Files
+
+def organize():
+    organize_files()
+
+
+organize_files_btn = tk.Button(root, text="Organize Files", command=organize, bg="#FFC107", fg="white",
+                               font=("Helvetica", 12), padx=20, pady=10)
+organize_files_btn.pack(pady=10)
+
+
 def arrange_alphabetically():
     arrange_files_alphabetically(dummy_files)
 
 
-arrange_alphabetically_btn = tk.Button(root, text="Arrange Alphabetically", command=arrange_alphabetically,
+arrange_alphabetically_btn = tk.Button(root, text="Organize files alphabetically", command=arrange_alphabetically,
                                        bg="#9C27B0", fg="white", font=("Helvetica", 12), padx=20, pady=10)
 arrange_alphabetically_btn.pack(pady=10)
 
@@ -85,12 +94,12 @@ def arrange_by_length():
     arrange_files_by_length(dummy_files)
 
 
-arrange_by_length_btn = tk.Button(root, text="Arrange by Length", command=arrange_by_length, bg="#2196F3", fg="white",
+arrange_by_length_btn = tk.Button(root, text="Organize files by Length", command=arrange_by_length, bg="#2196F3",
+                                  fg="white",
                                   font=("Helvetica", 12), padx=20, pady=10)
 arrange_by_length_btn.pack(pady=10)
 
 
-# Buttons
 def upload():
     press("Upload Files")
 
@@ -107,14 +116,5 @@ def create():
 create_account_btn = tk.Button(root, text="Create Account", command=create, bg="#007BFF", fg="white",
                                font=("Helvetica", 12), padx=20, pady=10)
 create_account_btn.pack(pady=10)
-
-
-def organize():
-    organize_files()
-
-
-organize_files_btn = tk.Button(root, text="Organize Files", command=organize, bg="#FFC107", fg="white",
-                               font=("Helvetica", 12), padx=20, pady=10)
-organize_files_btn.pack(pady=10)
 
 root.mainloop()
