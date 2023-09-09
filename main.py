@@ -5,18 +5,26 @@ root.title('ClassiFile')
 root.configure(bg="#f0f0f0")
 
 
-def increment_files():
-    global num_files
-    num_files += 1
-    update_sustainability_widget()
+def create():
+    create_account()
 
 
-def update_sustainability_widget():
-    sustainability_info_label.config(text=f"You saved {num_trees_saved} trees by uploading {num_files} files.")
+create_account_btn = tk.Button(root, text="Create Account", command=create, bg="#007BFF", fg="white",
+                               font=("Helvetica", 12), padx=20, pady=10)
+create_account_btn.pack(pady=10)
 
 
 def create_account():
     print("Your Account has been successfully created!")
+
+
+def upload():
+    press("Upload Files")
+
+
+upload_btn = tk.Button(root, text="Upload Files", command=upload, bg="#4CAF50", fg="white", font=("Helvetica", 12),
+                       padx=20, pady=10)
+upload_btn.pack(pady=10)
 
 
 def organize_files():
@@ -47,6 +55,17 @@ page_title.pack(pady=20)
 # Sustainability Widget
 sustainability_label = tk.Label(root, text="Sustainability Widget", font=("Helvetica", 16))
 sustainability_label.pack(pady=20)
+
+
+def update_sustainability_widget():
+    sustainability_info_label.config(text=f"You saved {num_trees_saved} trees by uploading {num_files} files.")
+
+
+def increment_files():
+    global num_files
+    num_files += 1
+    update_sustainability_widget()
+
 
 # Dummy files
 dummy_files = [
@@ -98,23 +117,5 @@ arrange_by_length_btn = tk.Button(root, text="Organize files by Length", command
                                   fg="white",
                                   font=("Helvetica", 12), padx=20, pady=10)
 arrange_by_length_btn.pack(pady=10)
-
-
-def upload():
-    press("Upload Files")
-
-
-upload_btn = tk.Button(root, text="Upload Files", command=upload, bg="#4CAF50", fg="white", font=("Helvetica", 12),
-                       padx=20, pady=10)
-upload_btn.pack(pady=10)
-
-
-def create():
-    create_account()
-
-
-create_account_btn = tk.Button(root, text="Create Account", command=create, bg="#007BFF", fg="white",
-                               font=("Helvetica", 12), padx=20, pady=10)
-create_account_btn.pack(pady=10)
 
 root.mainloop()
